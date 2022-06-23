@@ -39,8 +39,12 @@ No* insere_fim(Lista* lista , int info){
 No* insere_inicio(Lista* lista , int info){
     No* no = (No*) malloc(sizeof(No));
     no->info = info;
-    no->elo = lista->inicio;
-    return no;
+    if(lista->inicio == NULL){
+    	no->elo = no;	
+     }else{
+		no->elo = lista->inicio;	
+     }
+     return no;
 }
 
 void enqueue_fim(Lista* lista , int info){
